@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp"
+    android:id="@+id/swipe_refresh"
+    android:background="@drawable/bg_color"
+    tools:context=".view.MainActivity">
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+       <TextView
+           android:id="@+id/tvError"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/error_please_try_again"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           android:visibility="gone">
+       </TextView>
+
+
+       <ProgressBar
+           android:id="@+id/pb_loading"
+           android:visibility="gone"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent" />
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:gravity="center"
+           android:orientation="vertical"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent">
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="horizontal"
+               android:layout_gravity="center">
+
+               <EditText
+                   android:id="@+id/edt_city_name"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:lines="1"
+                   android:inputType="text"
+                   android:hint="@string/enter_city_name"
+                   android:textColorHint="@color/white"
+                   android:textColor="@color/white">
+
+               </EditText>
+
+               <ImageView
+                   android:id="@+id/iv_search"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:src="@drawable/ic_search"
+                   android:paddingTop="10dp"
+                   app:tint="@color/white">
+
+               </ImageView>
+
+
+           </LinearLayout>
+
+
+       </LinearLayout>
+
+       <LinearLayout
+           android:id="@+id/ll_data_view"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical">
+
+           <TextView
+               android:id="@+id/tv_temp_value"
+               android:layout_width="match_parent"
+               android:layout_height="0dp"
+               android:text="12C"
+               android:singleLine="true"
+               android:textStyle="bold"
+               android:textColor="@color/white"
+               android:layout_weight="1"
+               android:textSize="80sp"
+               android:gravity="center">
+           </TextView>
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:padding="15dp">
+
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center"
+                   android:orientation="vertical">
+
+                   <TextView
+                       android:id="@+id/tv_city_name"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text='@string/city_name'
+                       android:textSize="20sp"
+                       android:textColor="@color/white"/>
+                   <TextView
+                       android:id="@+id/tv_country_code"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text='County Code'
+                       android:textSize="17sp"
+                       android:textColor="@color/white"/>
+
+
+               </LinearLayout>
+
+               <ImageView
+                   android:id="@+id/iv_weather_icon"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:src="@drawable/ic_cloud"
+                   app:tint="@color/white">
+               </ImageView>
+           </LinearLayout>
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:padding="15dp">
+
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical">
+                   <TextView
+                       android:id="@+id/tv_humidity"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="data1"
+                       android:textColor="@color/white"/>
+                   <TextView
+                       android:id="@+id/tv_speed"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="data1"
+                       android:textColor="@color/white"/>
+                   <TextView
+                       android:id="@+id/tv_lat"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="data1"
+                       android:textColor="@color/white"/>
+                   <TextView
+                       android:id="@+id/tv_long"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="data1"
+                       android:textColor="@color/white"/>
+
+
+
+
+
+
+               </LinearLayout>
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical"
+                   android:layout_marginLeft="15dp">
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="data1"
+                       android:textColor="@color/white"/>
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="data1"
+                       android:textColor="@color/white"/>
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="data1"
+                       android:textColor="@color/white"/>
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="data1"
+                       android:textColor="@color/white"
+                       />
+
+
+
+
+
+
+               </LinearLayout>
+
+
+
+
+           </LinearLayout>
+       </LinearLayout>
+
+
+
+
+
+
+
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
