@@ -38,6 +38,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var tvSearch: EditText
     private lateinit var ivAdd: ImageView
     private lateinit var ivWeatherIcon:ImageView
+    private var  errorMsgDisplayed = false
 
     private val cardsArrayList: ArrayList<CardsModel> = arrayListOf()
 
@@ -82,7 +83,9 @@ class HomeActivity : AppCompatActivity() {
             SET.apply()
             viewModel.refreshData(city)
             getLiveData()
-            errorMessage()
+            if(!errorMsgDisplayed) {
+                errorMessage()
+            }
             tvSearch.setText("")
             try {
                 val imm: InputMethodManager =
@@ -152,8 +155,9 @@ class HomeActivity : AppCompatActivity() {
         viewModel.weatherError.observe(this){
 
             if (it.equals(true)){
-                Toast.makeText(this,"ERROR finding city",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Error in finding city",Toast.LENGTH_SHORT).show();
             }
+            errorMsgDisplayed = true
         }
     }
 
