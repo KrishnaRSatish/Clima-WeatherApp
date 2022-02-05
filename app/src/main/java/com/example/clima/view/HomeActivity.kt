@@ -83,6 +83,7 @@ class HomeActivity : AppCompatActivity() {
             SET.apply()
             viewModel.refreshData(city)
             getLiveData()
+
             if(!errorMsgDisplayed) {
                 errorMessage()
             }
@@ -114,7 +115,6 @@ class HomeActivity : AppCompatActivity() {
 
                     )
                 )
-
                 removeDuplicates(cardsArrayList)
 
 
@@ -123,6 +123,10 @@ class HomeActivity : AppCompatActivity() {
                 val cardAdapter = CardAdapter(this, cardsArrayList)
                 rvCard.layoutManager = linearLayoutManager
                 rvCard.adapter = cardAdapter
+
+                rvCard.apply {
+                    this.smoothScrollToPosition(cardsArrayList.size)
+                }
 
 
                 //      llDataView.visibility = View.VISIBLE
