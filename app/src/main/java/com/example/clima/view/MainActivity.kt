@@ -35,8 +35,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        editCityName  = findViewById<EditText>(R.id.edt_city_name)
+        setContentView(R.layout.activity_home)
+/*        editCityName  = findViewById<EditText>(R.id.edt_city_name)
         llDataView = findViewById(R.id.ll_data_view)
         tvTempValue = findViewById(R.id.tv_temp_value)
         tvCountyCode = findViewById(R.id.tv_country_code)
@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity() {
                     .into(ivWeatherIcon)
             }
 
-        }
+        }*/
 
     }
 }
