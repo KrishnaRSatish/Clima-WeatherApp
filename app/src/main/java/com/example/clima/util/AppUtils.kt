@@ -29,6 +29,11 @@ fun pressureDisplayWithUnit(temp:String): String {
     sb.append(temp).append(" bar")
     return sb.toString()
 }
+fun displayCountryCode(temp:String): String {
+    val sb = StringBuilder()
+    sb.append(",").append(temp)
+    return sb.toString()
+}
 
 
 

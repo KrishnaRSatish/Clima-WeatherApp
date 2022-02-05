@@ -110,6 +110,7 @@ class HomeActivity : AppCompatActivity() {
                         windSpeedDisplayWithUnit(data.wind.speed.toString()),
                         pressureDisplayWithUnit(data.main.pressure.toString()),
                         data.weather[0].description,
+                        displayCountryCode(data.sys.country)
 
                     )
                 )

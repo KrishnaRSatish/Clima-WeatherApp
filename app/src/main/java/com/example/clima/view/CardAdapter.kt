@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.clima.R
@@ -26,6 +27,12 @@ class CardAdapter(
   return ViewHolder(view)
  }
 
+ private fun removeAt(position: Int) {
+  cardsArrayList.removeAt(position)
+  notifyItemRemoved(position)
+  notifyItemRangeChanged(position, cardsArrayList.size)
+ }
+
  // binds the list items to a view
  override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
@@ -36,7 +43,19 @@ class CardAdapter(
   holder.itemView.findViewById<TextView>(R.id.tv_wind).text = model.wind
   holder.itemView.findViewById<TextView>(R.id.tv_pressure_value).text = model.pressure
   holder.itemView.findViewById<TextView>(R.id.tv_description).text = model.description
- }
+  holder.itemView.findViewById<TextView>(R.id.tv_country_code).text = model.countryCode
+
+
+  holder.itemView.findViewById<ImageView>(R.id.iv_cancel).setOnClickListener {
+   // remove your item from data base
+   cardsArrayList.removeAt(position)
+   notifyItemRemoved(position)
+  }
+
+  }
+
+
+
 
  // return the number of the items in the list
  override fun getItemCount(): Int {
@@ -45,5 +64,6 @@ class CardAdapter(
 
  // Holds the views for adding it to image and text
  class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
- }
+
+}
 }

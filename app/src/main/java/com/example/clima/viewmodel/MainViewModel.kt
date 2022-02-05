@@ -38,7 +38,8 @@ class MainViewModel : ViewModel() {
                         weatherLoad.value = false
                         cardList.value = CardsModel(t.main.temp.toString() ,t.name ,
                             t.main.humidity.toString() , t.wind.speed.toString(),
-                            t.main.pressure.toString() , t.weather[0].description
+                            t.main.pressure.toString() , t.weather[0].description,
+                            t.sys.country
                         )
                     }
 

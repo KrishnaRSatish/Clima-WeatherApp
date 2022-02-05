@@ -21,15 +21,35 @@
             android:id="@+id/tv_city_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-thin"
             android:text="Bangalore"
             android:textAlignment="center"
             android:textColor="@color/text_grey"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:fontFamily="sans-serif-thin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_country_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:paddingStart="2dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="60dp"
+            android:fontFamily="sans-serif-thin"
+            android:textStyle="bold"
+            android:text=",IN"
+            android:textAlignment="center"
+            android:textColor="@color/text_grey"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/iv_cancel"
+            app:layout_constraintStart_toEndOf="@+id/tv_city_name"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </TextView>
 
         <TextView
             android:id="@+id/tv_temp_value"
@@ -38,7 +58,7 @@
             android:layout_marginTop="15dp"
             android:text="21C"
             android:fontFamily="sans-serif-condensed"
-            android:textColor="@color/white"
+            android:textColor="@color/background_black"
             android:textSize="50sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -161,8 +181,10 @@
             android:id="@+id/iv_cancel"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_marginEnd="5dp"
+            android:layout_marginEnd="2dp"
             android:layout_marginTop="2dp"
+            android:clickable="true"
+            android:focusable="true"
             android:src="@drawable/ic_cancel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
