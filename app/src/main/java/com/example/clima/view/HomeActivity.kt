@@ -37,8 +37,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var swipeLayout: SwipeRefreshLayout
     private lateinit var tvSearch: EditText
     private lateinit var ivAdd: ImageView
-    private lateinit var ivWeatherIcon:ImageView
-    private var  errorMsgDisplayed = false
+    private var errorMsgDisplayed = false
 
     private val cardsArrayList: ArrayList<CardsModel> = arrayListOf()
 
@@ -50,7 +49,6 @@ class HomeActivity : AppCompatActivity() {
         swipeLayout = findViewById(R.id.swipe_refresh)
         tvSearch = findViewById(R.id.edt_city_name)
         ivAdd = findViewById(R.id.iv_add)
-
 
 
         /*  editCityName  = findViewById<EditText>(R.id.edt_city_name)
@@ -65,8 +63,8 @@ class HomeActivity : AppCompatActivity() {
            ivWeatherIcon = findViewById(R.id.iv_weather_icon)*/
 
 
-        GET = getSharedPreferences(packageName, MODE_PRIVATE)
-        SET = GET.edit()
+        /* GET = getSharedPreferences(packageName, MODE_PRIVATE)
+        SET = GET.edit()*/
 
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
@@ -78,24 +76,28 @@ class HomeActivity : AppCompatActivity() {
 
         }
         ivAdd.setOnClickListener {
-            val city = tvSearch.text.toString()
-            SET.putString("cityName", city)
-            SET.apply()
-            viewModel.refreshData(city)
-            getLiveData()
+            if (tvSearch.text.toString() != "") {
+                val city = tvSearch.text.toString()
+                tvSearch.setText("")
+                /* SET.putString("cityName", city)
+            SET.apply()*/
+                if (!errorMsgDisplayed) {
+                    errorMessage()
+                }
+                viewModel.refreshData(city)
+                getLiveData()
 
-            if(!errorMsgDisplayed) {
-                errorMessage()
-            }
-            tvSearch.setText("")
-            try {
-                val imm: InputMethodManager =
-                    getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-                imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
-            } catch (e: Exception) {
-                // TODO: handle exception
-            }
+                try {
+                    val imm: InputMethodManager =
+                        getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+                    imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
+                } catch (e: Exception) {
+                    // TODO: handle exception
+                }
+            } else {
+                Toast.makeText(this, "Text field Empty", Toast.LENGTH_SHORT).show()
 
+            }
         }
 
 
@@ -152,15 +154,14 @@ class HomeActivity : AppCompatActivity() {
             }
 
 
-
         }
 
     }
-    private fun errorMessage(){
-        viewModel.weatherError.observe(this){
+    private fun errorMessage() {
+        viewModel.weatherError.observe(this) {
 
-            if (it.equals(true)){
-                Toast.makeText(this,"Error in finding city",Toast.LENGTH_SHORT).show();
+            if (it.equals(true)) {
+                Toast.makeText(this, "Error in finding city", Toast.LENGTH_SHORT).show();
             }
             errorMsgDisplayed = true
         }
