@@ -1,3 +1,5 @@
+package com.example.clima.view
+
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -30,6 +32,10 @@ class CardAdapter(
   val model: CardsModel = cardsArrayList[position]
   holder.itemView.findViewById<TextView>(R.id.tv_temp_value).text = model.tempValue
   holder.itemView.findViewById<TextView>(R.id.tv_city_name).text = model.cityName
+  holder.itemView.findViewById<TextView>(R.id.tv_humidity_value).text = model.humidity
+  holder.itemView.findViewById<TextView>(R.id.tv_wind).text = model.wind
+  holder.itemView.findViewById<TextView>(R.id.tv_pressure_value).text = model.pressure
+  holder.itemView.findViewById<TextView>(R.id.tv_description).text = model.description
  }
 
  // return the number of the items in the list
