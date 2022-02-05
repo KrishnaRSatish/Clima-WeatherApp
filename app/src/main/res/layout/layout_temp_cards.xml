@@ -23,9 +23,10 @@
             android:layout_height="wrap_content"
             android:text="Bangalore"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@color/text_grey"
             android:textSize="30sp"
-            android:textStyle="italic"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-thin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -36,9 +37,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="21C"
+            android:fontFamily="sans-serif-condensed"
             android:textColor="@color/white"
             android:textSize="50sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_city_name" />
@@ -52,30 +53,30 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tv_temp_value"
             app:layout_constraintTop_toBottomOf="@+id/tv_city_name"
-            app:tint="@color/white"/>
+            app:tint="@color/white" />
 
         <ImageView
             android:id="@+id/iv_humidity"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:src="@drawable/water"
-           android:layout_marginEnd="110dp"
             android:layout_marginTop="15dp"
-            app:layout_constraintEnd_toStartOf="@+id/tv_temp_value"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/water"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_city_name">
+
         </ImageView>
 
         <TextView
             android:id="@+id/tv_humidity_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="15dp"
-            android:layout_marginStart="15dp"
             android:text="20%"
-            android:textStyle="italic"
-           android:layout_marginEnd="70dp"
             android:textColor="@color/text_grey"
-            app:layout_constraintEnd_toStartOf="@+id/tv_temp_value"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-thin"
             app:layout_constraintStart_toEndOf="@id/iv_humidity"
             app:layout_constraintTop_toBottomOf="@+id/tv_city_name">
 
@@ -86,29 +87,38 @@
             android:id="@+id/iv_wind"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:src="@drawable/wind"
-            android:layout_marginEnd="110dp"
             android:layout_marginTop="15dp"
-            app:layout_constraintEnd_toStartOf="@+id/tv_temp_value"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/wind"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_humidity">
+
         </ImageView>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="15dp"
             android:text="7Km/h"
-            android:textStyle="italic"
-            android:layout_marginEnd="70dp"
-            android:layout_marginStart="15dp"
+            android:fontFamily="sans-serif-thin"
             android:textColor="@color/text_grey"
-            app:layout_constraintEnd_toStartOf="@+id/tv_temp_value"
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/iv_humidity"
             app:layout_constraintTop_toBottomOf="@+id/tv_humidity_value">
 
         </TextView>
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_cancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/text_grey"
+            android:alpha="0.5">
 
+        </ImageView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

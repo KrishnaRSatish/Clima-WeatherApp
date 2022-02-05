@@ -1,7 +1,7 @@
 package com.example.clima.services
 
 import com.example.clima.model.WeatherModel
-import com.example.clima.model.util.Constants
+import com.example.clima.util.Constants
 import io.reactivex.rxjava3.core.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
@@ -17,7 +17,7 @@ class WeatherApiServices {
         .build()
         .create(WeatherApi::class.java)
 
-    fun getDataServices():Single<WeatherModel>{
-        return api.getData()
+    fun getDataServices(cityName:String):Single<WeatherModel>{
+        return api.getData(cityName)
     }
 }

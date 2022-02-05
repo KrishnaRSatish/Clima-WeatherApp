@@ -2,6 +2,7 @@ package com.example.clima.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.clima.model.CardsModel
 import com.example.clima.model.WeatherModel
 import com.example.clima.services.WeatherApiServices
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -16,16 +17,17 @@ class MainViewModel : ViewModel() {
     val weatherData = MutableLiveData<WeatherModel>()
     val weatherError = MutableLiveData<Boolean>()
     val weatherLoad = MutableLiveData<Boolean>()
+    val cardList = MutableLiveData<WeatherModel>()
 
-    fun refreshData() {
-        getDataFromAPI()
+    fun refreshData(cityName:String) {
+        getDataFromAPI(cityName)
         //getDataFromLocal()
     }
 
-    private fun getDataFromAPI() {
+    private fun getDataFromAPI(cityName:String ) {
         weatherLoad.value = true
         disposable.add(
-            weatherAPIService.getDataServices()
+            weatherAPIService.getDataServices(cityName)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(object : DisposableSingleObserver<WeatherModel>() {
@@ -33,6 +35,7 @@ class MainViewModel : ViewModel() {
                         weatherData.value = t
                         weatherError.value = false
                         weatherLoad.value = false
+                        cardList.value = t
                     }
 
                     override fun onError(e: Throwable) {
